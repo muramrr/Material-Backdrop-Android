@@ -116,15 +116,28 @@
 	</com.google.android.material.button.MaterialButtonToggleGroup>
 	
 	
-	<FrameLayout android:id="@+id/frontContentContainer"
+	<com.google.android.material.card.MaterialCardView android:id="@+id/frontContentContainer"
 		android:layout_height="0dp"
 		android:layout_width="0dp"
-		android:background="@drawable/view_bg_surface_top_24"
+		
+		app:cardElevation="2dp"
+		app:shapeAppearanceOverlay="@style/My.ShapeAppearanceOverlayCard.TopCorners"
 		
 		app:layout_constraintTop_toBottomOf="@id/tvHeader"
 		app:layout_constraintBottom_toBottomOf="parent"
 		app:layout_constraintStart_toStartOf="parent"
 		app:layout_constraintEnd_toEndOf="parent">
+		
+		
+		<!-- drag indicator -->
+		<ImageView android:id="@+id/ivTopIndicator"
+			android:layout_width="50dp"
+			android:layout_height="2dp"
+			android:layout_gravity="center_horizontal"
+			android:layout_marginTop="4dp"
+			android:src="@drawable/ic_horizontal_line_24"
+			android:scaleType="centerCrop"
+			/>
 		
 		<androidx.recyclerview.widget.RecyclerView
 			android:id="@+id/recyclerView"
@@ -135,22 +148,9 @@
 			tools:listitem="@layout/item_recycler"
 			/>
 	
-	</FrameLayout>
+	</com.google.android.material.card.MaterialCardView>
 	
-	<!-- drag indicator -->
-	<ImageView android:id="@+id/ivTopIndicator"
-		android:layout_width="0dp"
-		android:layout_height="4dp"
-		android:layout_gravity="center_horizontal"
-		android:layout_marginTop="6dp"
-		android:src="@drawable/ic_horizontal_line_24"
-		android:scaleType="centerCrop"
-		
-		app:layout_constraintWidth_percent="0.1"
-		app:layout_constraintTop_toTopOf="@id/frontContentContainer"
-		app:layout_constraintStart_toStartOf="parent"
-		app:layout_constraintEnd_toEndOf="parent"
-		/>
+	
 
 
 </androidx.constraintlayout.motion.widget.MotionLayout>
