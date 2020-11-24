@@ -54,3 +54,24 @@ Only base features of MotionLayout used to achieve such behaviour.
 </MotionScene>
 
 ```
+
+### How it can be done another simple way?
+
+You can opt out of using the MotionLayout, make all the same in ConstraintLayout or FrameLayout as a main container.
+
+Place all staff one on top of the other and use something like this:
+```kotlin
+//register container swipe listener
+...a lot of code here...
+
+//somewhere in your listener
+//calculate your backdrop content bottom coords
+val backdropBottom = containerBackdrop.height // the real case could be more complex
+...
+//this will slide your front content to bottom
+FrontContentContainer.animate().translationY(backdropBottom).start()
+...
+
+//this will slide your front content back
+FrontContentContainer.animate().translationY(initPos).start()
+```
